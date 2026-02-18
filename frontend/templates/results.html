@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results - Resume ATS Optimizer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>Resume ATS</h1>
+            <div class="nav-links">
+                <a href="/dashboard">Dashboard</a>
+                <a href="/upload">New Analysis</a>
+                <button onclick="logout()" class="btn btn-small">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="results-page">
+            <div class="results-header">
+                <h1>Analysis Results</h1>
+                <div class="job-info" id="jobInfo">
+                    <h3 id="jobTitle"></h3>
+                    <p id="companyName"></p>
+                </div>
+            </div>
+
+            <!-- Match Score -->
+            <div class="card score-card">
+                <h2>Match Score</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <div class="score-number" id="matchScore">-</div>
+                        <div class="score-label">/10</div>
+                    </div>
+                    <div class="score-details">
+                        <div class="score-bar">
+                            <div class="score-fill" id="scoreFill"></div>
+                        </div>
+                        <p id="scoreSummary"></p>
+                    </div>
+                </div>
+                <div class="score-reasoning" id="scoreReasoning"></div>
+            </div>
+
+            <!-- Strengths & Gaps -->
+            <div class="grid-2">
+                <div class="card">
+                    <h2>✅ Strengths</h2>
+                    <ul id="strengthsList"></ul>
+                </div>
+                <div class="card">
+                    <h2>❌ Gaps</h2>
+                    <ul id="gapsList"></ul>
+                </div>
+            </div>
+
+            <!-- Missing Keywords -->
+            <div class="card">
+                <h2>🔑 Missing Keywords</h2>
+                <p class="subtitle">Add these keywords to improve your match</p>
+                <div class="keywords-grid" id="keywordsList"></div>
+            </div>
+
+            <!-- ATS Compatibility -->
+            <div class="card ats-card">
+                <h2>🤖 ATS Compatibility</h2>
+                <div class="ats-score">
+                    <div class="circular-progress" id="atsProgress">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" class="progress-bg"></circle>
+                            <circle cx="50" cy="50" r="45" class="progress-fill" id="atsCircle"></circle>
+                        </svg>
+                        <div class="progress-text">
+                            <span id="atsScore">-</span>%
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="atsIssues" class="ats-issues"></div>
+                <div id="atsRecommendations" class="ats-recommendations"></div>
+            </div>
+
+            <!-- Actions -->
+            <div class="card actions-card">
+                <h2>Next Steps</h2>
+                <div class="actions-grid">
+                    <button onclick="showRewriteForm()" class="btn btn-primary">
+                        📝 Optimize Resume
+                    </button>
+                    <button onclick="window.print()" class="btn btn-secondary">
+                        🖨️ Print Results
+                    </button>
+                    <a href="/upload" class="btn btn-secondary">
+                        🆕 New Analysis
+                    </a>
+                </div>
+            </div>
+
+            <!-- Rewrite Form (Hidden initially) -->
+            <div id="rewriteSection" class="card" style="display: none;">
+                <h2>Optimize Experience Section</h2>
+                <p class="subtitle">Paste your experience section below for AI-powered optimization</p>
+                
+                <form id="rewriteForm">
+                    <div class="form-group">
+                        <label for="experienceText">Experience Section</label>
+                        <textarea id="experienceText" rows="10" placeholder="Paste your work experience here..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="rewriteBtn">
+                        <span class="btn-text">Optimize</span>
+                        <span class="btn-loading" style="display: none;">Optimizing...</span>
+                    </button>
+                </form>
+                
+                <div id="rewriteResult" style="display: none;">
+                    <h3>✨ Optimized Version</h3>
+                    <div class="optimized-text" id="optimizedText"></div>
+                    <button onclick="copyToClipboard()" class="btn btn-secondary">📋 Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
