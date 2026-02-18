@@ -8,7 +8,7 @@ const config = require('../core/config');
 // Initialize Gemini
 const genAI = new GoogleGenerativeAI(config.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
-  model: config.GEMINI_MODEL || 'gemini-pro'
+  model: config.GEMINI_MODEL || 'gemini-2.5-flash'
 });
 
 /**
