@@ -13,8 +13,8 @@ const analysisSchema = [
     .notEmpty()
     .withMessage('Job description is required')
     .isString()
-    .isLength({ min: 50 })
-    .withMessage('Job description must be at least 50 characters'),
+    .isLength({ min: 10 })
+    .withMessage('Job description must be at least 10 characters'),
   body('company_name')
     .optional()
     .isString()

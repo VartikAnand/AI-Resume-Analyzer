@@ -21,7 +21,7 @@ const config = {
 
   // Gemini
   GEMINI_API_KEY: process.env.GEMINI_API_KEY || '',
-  GEMINI_MODEL: 'gemini-1.5-flash',
+  GEMINI_MODEL: 'gemini-1.5-flash-latest',
 
   // File Upload
   UPLOAD_DIR: path.join(__dirname, '../../uploads'),

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analysis Results - Resume ATS Optimizer</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-content">
@@ -79,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="atsIssues" class="ats-issues"></div>
                 <div id="atsRecommendations" class="ats-recommendations"></div>
             </div>
@@ -104,19 +106,20 @@
             <div id="rewriteSection" class="card" style="display: none;">
                 <h2>Optimize Experience Section</h2>
                 <p class="subtitle">Paste your experience section below for AI-powered optimization</p>
-                
+
                 <form id="rewriteForm">
                     <div class="form-group">
                         <label for="experienceText">Experience Section</label>
-                        <textarea id="experienceText" rows="10" placeholder="Paste your work experience here..." required></textarea>
+                        <textarea id="experienceText" rows="10" placeholder="Paste your work experience here..."
+                            required></textarea>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-primary" id="rewriteBtn">
                         <span class="btn-text">Optimize</span>
                         <span class="btn-loading" style="display: none;">Optimizing...</span>
                     </button>
                 </form>
-                
+
                 <div id="rewriteResult" style="display: none;">
                     <h3>✨ Optimized Version</h3>
                     <div class="optimized-text" id="optimizedText"></div>
@@ -126,6 +129,8 @@
         </div>
     </div>
 
+    <script src="/static/js/common.js"></script>
     <script src="/static/js/app.js"></script>
 </body>
+
 </html>
